@@ -36,13 +36,15 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 				this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				this.setSize(500,100);
 				this.setLocation(450, 450);
+				
 				quizQuestion = new JLabel(qAndAArray[0]);
 				answerGroup = new ButtonGroup();
 				answers = new JRadioButton[4];
 				submit = new JButton("Submit");
+				
 				int	index = 0;	
 				add(quizQuestion);
-				for (int i=1; i<5;i++)
+				for (int i=1; i<5;i++) 
 					{
 						if (qAndAArray[i] == qAndAArray[5])
 							{
@@ -50,6 +52,7 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 							}
 				
 					}
+				
 				ButtonModel[] model = new ButtonModel[4];
 				for (int counter = 0; counter < 4;counter++)
 					{
@@ -58,13 +61,14 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 						answerGroup.add(answers[counter]);
 						add(answers[counter]);
 					}
+				
 				add(submit);
 				setVisible(flag);
 				submit.addActionListener(this);
 				while(flag)
 					{
 						submit.addActionListener(this);
-						if (flag ==false)
+						if (flag == false)
 							{
 								setVisible(flag);
 								break;
@@ -73,7 +77,7 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 		
 				if (model[index-1].isSelected())
 					{
-						score =true;
+						score = true;
 					}	
 				else
 					{
@@ -81,9 +85,8 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 					}
 			
 				return score;
-		
-		
 			}
+		
 		public void displayResults(boolean[] answers)
 			{
 				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,9 +95,10 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 				int truths=0;
 				for(int i=0;i<5;i++)
 					{
-						if(answers[i]== true)
+						if(answers[i] == true)
 							truths++;
 					}
+				
 				quizQuestion = new JLabel(truths+ " out of 5 Correct");
 				add(quizQuestion);
 				submit = new JButton("Okay");
@@ -107,12 +111,8 @@ public class QuizQuestionBox extends JFrame implements ActionListener
 						if (flag ==false)
 							{
 								setVisible(flag);
-		
 							}
-
 					}
-			
 			}
-	
 	}
 
